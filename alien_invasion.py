@@ -88,6 +88,11 @@ class AlienInvasion:
         self._check_fleet_edges()
         self.aliens.update()
 
+        if not self.aliens:
+            # Destroy existing bullets and create new fleet.
+            self.bullets.empty()
+            self._create_fleet()
+
     def _update_screen(self):
         # Redraw the screen during each pass through the loop
         self.screen.fill(self.settings.bg_color)
